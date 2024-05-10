@@ -7,7 +7,7 @@ CREATE table credit_card.category as
 ALTER table credit_card.catagory 
 add column category varchar(50)
 
-
+# catagorize each expense
 UPDATE credit_card.catagory
 SET catagory =
     CASE
