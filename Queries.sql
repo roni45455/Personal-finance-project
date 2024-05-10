@@ -45,9 +45,9 @@ SET catagory =
   
    #summary of monthly expanses per year
    SELECT 
-   		YEAR(e.`date`) as 'Year',
-   		MONTHNAME(e.`date`) as 'Month', 
-   		ROUND(SUM(e.amount))  as 'sum'
+   	YEAR(e.`date`) as 'Year',
+   	MONTHNAME(e.`date`) as 'Month', 
+   	ROUND(SUM(e.amount))  as 'sum'
    FROM credit_card.expenses e 
    GROUP BY MONTHNAME(e.`date`),YEAR(e.`date`)
    ORDER BY MIN(e.`date`);
@@ -56,9 +56,9 @@ SET catagory =
   #monthly avrage for each year
 WITH cte AS (
    SELECT 
-   		YEAR(e.`date`) as `Year`,
-   		MONTHNAME(e.`date`) as `Month`, 
-   		ROUND(SUM(e.amount))  as `sum`
+   	YEAR(e.`date`) as `Year`,
+   	MONTHNAME(e.`date`) as `Month`, 
+   	ROUND(SUM(e.amount))  as `sum`
    FROM credit_card.expenses e 
    GROUP BY YEAR(e.`date`), MONTHNAME(e.`date`)
 )
@@ -69,10 +69,10 @@ GROUP BY `Year`;
   
    #summary of monthly expanses per month per catagory
    SELECT 
-   		YEAR(e.`date`) as 'Year',
-   		MONTHNAME(e.`date`) as 'Month', 
-   		c.catagory as category,
-   		ROUND(SUM(e.amount))  as 'sum'
+   	YEAR(e.`date`) as 'Year',
+   	MONTHNAME(e.`date`) as 'Month', 
+   	c.catagory as category,
+   	ROUND(SUM(e.amount))  as 'sum'
    FROM credit_card.expenses e JOIN credit_card.catagory c ON e.name = c.name
    GROUP BY MONTHNAME(e.`date`), category, YEAR(e.`date`)
    ORDER BY MIN(e.`date`);
