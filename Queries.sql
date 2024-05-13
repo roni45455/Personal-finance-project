@@ -28,13 +28,13 @@ SET catagory =
     END;
    
    #check for new expense for possible catagorize
-   SELECT * FROM credit_card.catagory c WHERE c.catagory  ='Other' 
+   SELECT * FROM credit_card.catagory c WHERE c.catagory  = 'Other' 
    
    
   # show the expenses of chosen month
    SELECT e.`date`, e.name , e.amount, c.catagory
    FROM credit_card.expenses e join credit_card.catagory c on e.name = c.name 
-   WHERE YEAR(e.`date`) = '2023' AND MONTH(e.`date`) = '3'
+   WHERE YEAR(e.`date`) = '2023' AND MONTH(e.`date`) = '3' #chose year and month
    ORDER BY e.`date`
    
     #Total sum of expenses by catagory for certien month
