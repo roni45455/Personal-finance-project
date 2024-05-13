@@ -1,6 +1,17 @@
-# Personal-finance-project
+# Personal expenses tracking system
 
-The following project is a system to analyze personal financial expenses.
-the input files are csv file downloaded from Isracard website and hold all the imfo regarding certien month expenses (there are 24 file - 2 years of data)
-first, i used python script to clean the files and bring them to certien format for easier analysis, the script also create connectiont to MySQL server on the local machine and imports the clean data to the database.
-I also added text file that shows the SQL queries i run (using Dbeaver DBMS) in order to get insigths from the data
+The following project is a system that tracks and analyzes credit card expenses on a monthly basis.
+
+The monthly credit card expenses are downloaded from the "Isracard" website as Excel files and stored in a dedicated folder.
+
+Using Python's "Pandas" library, each file is cleaned from irrelevant data, and data types are modified so that the data can now be analyzed in an efficient way.
+
+With the "sqlalchemy" library, a connection is established with a local SQL DBMS, and the data is imported as tables to the database that was created on the server.
+
+Using the "DBeaver" database tool, SQL queries explore the data for financial insights and expense review.
+
+The project is built in a way that it can be updated and maintained  on monthly basis with high efficiency.
+
+Python scripts and SQL queries are available in the files attached.
+
+
