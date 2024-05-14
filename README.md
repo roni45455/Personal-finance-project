@@ -37,6 +37,13 @@ One I have set up my database with the expenses table, I created another table (
 The following queries are used to expore the data and extract usful insigths regarding financial spending habits, detection anomalities and creating an overview.
 The whole datadase is created in a way that it can de easliey updated with new data, link for the [SQL queries](https://github.com/roni45455/Personal-finance-project/blob/main/Queries.sql)
 
+## Visualization with Tableau
+
+In addition, I wanted a visual representation of my spending habits. I chose to create a Tableau dashboard for this purpose. I imported all the tables from the credit_card database. 
+(Note : I could not link the interactive dashboard since I dont hold Tableu paid membership)
+![צילום מסך 2024-05-15 ב-0 40 56](https://github.com/roni45455/Personal-finance-project/assets/160248285/fc23e90d-28e6-45d5-8dff-6614f7f091ca)
+
+
 
 
 
