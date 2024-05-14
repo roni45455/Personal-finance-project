@@ -1,17 +1,34 @@
 # Personal expenses tracking system
 
-The following project is a system that tracks and analyzes credit card expenses on a monthly basis.
+## Introduction
 
-The monthly credit card expenses are downloaded from the "Isracard" website as Excel files and stored in a dedicated folder.
+In this project, I developed a MySQL database called credit_card tracking all of my credit card expense since March 2022 . This includes ONLY the purcheses made with my only credit card. These expenses are extracted from my credit card website "Isracard" in the form of CSV files, transformed using customized Python scripts, and loaded into the database via the SQLAlchemy Python library. I then created SQL queries to understand my spending habits and developed a Tableau dashboard linked to the database to view these insigths visually.
 
-Using Python's "Pandas" library, each file is cleaned from irrelevant data, and data types are modified so that the data can now be analyzed in an efficient way.
+## Technologies and Skills
 
-With the "sqlalchemy" library, a connection is established with a local SQL DBMS, and the data is imported as tables to the database that was created on the server.
+Technologies: SQL (MySQL), Dbeaver database manger, Python (Pandas, OS, SQLAlchemy), Tableau.
+Skills: Data modeling, database development, data cleaning, data analysis, data visualization/dashboarding
 
-Using the "DBeaver" database tool, SQL queries explore the data for financial insights and expense review.
+## Inspiration
 
-The project is built in a way that it can be updated and maintained  on monthly basis with high efficiency.
+The inspiration for my first data analysis/engineering project stemmed from the understanig the importance of data in today industry. Witnessing the transformative power of data-driven insights in various fields, from healthcare to finance, ignited my curiosity to explore the boundless possibilities of harnessing data. 
 
-Python scripts and SQL queries are available in the files attached.
+## ER diagram
+
+Since it's my first project, for simpliciaty the database consist of only two tables, 'expenses' that containg only the needed data for the analysis such as date of transaction, name of the buisness, and the amount of the transaction. the other table catagorize each buisness name to spending catagory such as  bills, education etc...
+
+![צילום מסך 2024-05-14 ב-22 47 36](https://github.com/roni45455/Personal-finance-project/assets/160248285/3cef1385-9810-47a2-bf36-00e63673adc2)
+## Data cleaning, database creation and data loading
+
+My data was exported from the credit card company website as Excel files and stored in a local directory called "Raw data".
+Using Python's Pandas library, I created a function that loads the Excel file to Pandas Dataframe and remove irellevant data, renames column names from Hebrew to English and modifies the data types for easier analysis.
+Every file that was cleaned was appended to one main dataframe (later to be imported to the databse as the "expense" table,
+The function iterated througth all files in the "Raw data" directory).
+
+Using SQLalchemy library, I created a connection with the local MySql DBMS and imported the main dataframe as the expense table to the database.
+
+Link to the ETL Python script
+
+
 
 
