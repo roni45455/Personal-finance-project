@@ -27,7 +27,7 @@ The function iterated througth all files in the "Raw data" directory).
 
 Using SQLalchemy library, I created a connection with the local MySql DBMS and imported the main dataframe as the expense table to the database.
 
-Link to the ETL Python script
+Link to the [ETL Python script](https://github.com/roni45455/Personal-finance-project/blob/main/ETL.ipynb)
 
 
 
