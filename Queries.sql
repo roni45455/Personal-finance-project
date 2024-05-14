@@ -1,4 +1,6 @@
-#This query allows constantly update and catogorize new expenses
+-------------------------------------------------------------------
+--This query allows constantly update and catogorize new expenses--
+-------------------------------------------------------------------
 UPDATE credit_card.catagory
 SET catagory =
     CASE
@@ -27,24 +29,28 @@ SET catagory =
         ELSE 'Other'
     END;
    
-   #check for new expense for possible catagorize
+   --check for new expense for possible new catagorize--
    SELECT * FROM credit_card.catagory c WHERE c.catagory  = 'Other' 
    
-   
-  # show the expenses of chosen month
+  -------------------------------------
+  --show the expenses of chosen month--
+  -------------------------------------     
    SELECT e.`date`, e.name , e.amount, c.catagory
    FROM credit_card.expenses e join credit_card.catagory c on e.name = c.name 
    WHERE YEAR(e.`date`) = '2023' AND MONTH(e.`date`) = '3' #chose year and month
    ORDER BY e.`date`
-   
-    #Total sum of expenses by catagory for certien month
+       
+-------------------------------------------------------
+--Total sum of expenses by catagory for certien month--
+-------------------------------------------------------
    SELECT MONTHNAME(e.`date`) as 'month' ,c.catagory, round(sum(e.amount),2) as 'sum'
    from credit_card.expenses e join credit_card.catagory c on e.name = c.name
    WHERE YEAR(e.`date`) = '2022' AND MONTH(e.`date`) = '6' #chose year and month
    GROUP BY c.catagory, MONTHNAME(e.`date`)
    
-   
-   #Compare monthly expense (of certin month) to same month of previous years
+   -----------------------------------------------------------------------------
+   --Compare monthly expense (of certin month) to same month of previous years--
+   -----------------------------------------------------------------------------
    SELECT 
    		YEAR(e.`date`) as 'Year',
    		MONTHNAME(e.`date`) as 'Month', 
@@ -54,8 +60,9 @@ SET catagory =
    GROUP BY MONTHNAME(e.`date`),YEAR(e.`date`)
    ORDER BY MIN(e.`date`);
    
-     
-   #summary of monthly expanses per year
+   ----------------------------------------
+   --summary of monthly expanses per year--
+   ----------------------------------------
    SELECT 
    		YEAR(e.`date`) as 'Year',
    		MONTHNAME(e.`date`) as 'Month', 
@@ -64,8 +71,9 @@ SET catagory =
    GROUP BY MONTHNAME(e.`date`),YEAR(e.`date`)
    ORDER BY MIN(e.`date`);
   
-  
-  #monthly avrage for each year
+--------------------------------
+--monthly avrage for each year--
+--------------------------------
 WITH cte AS (
    SELECT 
    		YEAR(e.`date`) as `Year`,
@@ -78,8 +86,9 @@ SELECT `Year`, AVG(`sum`) as `average_monthly_sum`
 FROM cte 
 GROUP BY `Year`;
 
-  
-   #summary of monthly expanses per month per catagory
+   ------------------------------------------------------
+   --summary of monthly expanses per month per catagory--
+   ------------------------------------------------------
    SELECT 
    		YEAR(e.`date`) as 'Year',
    		MONTHNAME(e.`date`) as 'Month', 
