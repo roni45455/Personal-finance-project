@@ -1,4 +1,5 @@
 # Personal expenses tracking system
+Note that the projects is still being worked on and the files are constantly being updated
 
 ## Introduction
 
