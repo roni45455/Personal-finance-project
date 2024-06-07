@@ -46,7 +46,7 @@ The clean file looks like this:
 
 <img width="258" alt="צילום מסך 2024-06-07 ב-22 26 24" src="https://github.com/roni45455/Personal-finance-project/assets/160248285/5d386907-c549-452e-bbc4-c29db8ac41d8">
 
-This loop iterates through all files with a ".xls" extension in the specified directory, applies the clean function to each file, and saves the cleaned data as CSV files.
+Next we would like to iterates through all files with a ".xls" extension in the specified directory, applies the clean function to each file, and saves the cleaned data as CSV files.
 By running this loop, each Excel file in the directory will be cleaned and saved as a corresponding CSV file using the clean function.
 ```python
 directory = '/Users/ronipinus/Desktop/VS-Workspace/ project/raw data'
@@ -58,7 +58,7 @@ for file in os.listdir(directory):
         clean(file_path,new_file_name)
 ```
 
-This reads multiple CSV files from a directory, combines them into a single DataFrame, and then renames columns of the combined DataFrame.
+The next codeblock reads multiple CSV files from a directory, combines them into a single DataFrame, and then renames columns of the combined DataFrame.
 This effectively combines multiple CSV files into a single DataFrame and standardizes the column names for further analysis or processing.
 ```python
 directory = '/Users/ronipinus/Desktop/VS-Workspace/ project/clean data'
@@ -75,9 +75,13 @@ main_df.rename(columns={'תאריך רכישה': 'date' , 'שם בית עסק': 
 The following creates a connection engine to a MySQL database named "credit_card".
 create_engine is a function from the SQLAlchemy library used to create a connection engine to a database.
 the parameter of the function are:
+
 'mysql+pymysql://': This part specifies the database dialect (mysql) and the driver (pymysql) to be used for connecting to the MySQL database.
+
 'root:password@localhost': This part specifies the username (root) and password (password) for connecting to the MySQL server running on localhost.
+
 'credit_card': This is the name of the MySQL database to which we want to connect.
+
 ```python
 conn = create_engine('mysql+pymysql://root:password@localhost/credit_card')
 ```
@@ -149,7 +153,7 @@ And from here we can run some queries for overall insights:
   GROUP BY `Year`;
 ```
 I also wanted to determine monthly budget for each catagory based on the expenses data I hold.
-Since I'm handaling relativly small amount of data, anomalities or "spikes" in monthly expenses can Significantly impact the monthly avrage, I used the k-th percentile to determin the monthly budget for each catagory.
+Since I'm handaling relativly small amount of data, anomalities or "spikes" in monthly expenses can significantly impact the monthly avrage, so insted I used the k-th percentile to determin the monthly budget for each catagory.
 ```sql
 CREATE TABLE credit_card.budget(
  catagory VARCHAR(50),
