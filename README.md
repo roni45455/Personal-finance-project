@@ -17,6 +17,7 @@ My data was exported from the credit card company website as Excel files and sto
 <img width="590" alt="צילום מסך 2024-06-07 ב-22 25 35" src="https://github.com/roni45455/Personal-finance-project/assets/160248285/ae553243-1152-4ee3-a338-805b606d1df6">
 
 The following script is using pandas to create one main Dataframe from all the clean CSV files and loads it into the MySQL server.
+
 First we import the relevent libraries:
 ```python
 import pandas as pd
